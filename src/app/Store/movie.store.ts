@@ -2,10 +2,9 @@ import {
   signalStore,
   withState,
   withMethods,
-  patchState,
-  withComputed
+  patchState
 } from '@ngrx/signals';
-import { computed, inject } from '@angular/core';
+import { inject } from '@angular/core';
 import { HttpClientService } from '../Services/http-client';
 
 interface Movie {
@@ -18,7 +17,6 @@ interface Movie {
 }
 
 const initialMovies: Movie[] = [];
-const initialWishlist: Movie[] = [];
 const initialTvShows: Movie[] = [];
 
 export const movieStore = signalStore(
@@ -26,13 +24,8 @@ export const movieStore = signalStore(
 
   withState({
     myMovies: initialMovies,
-    myTvShows: initialTvShows,
-    wishlist: initialWishlist
+    myTvShows: initialTvShows
   }),
-
-  withComputed((state) => ({
-    wishlistCount:computed( () => state.wishlist().length)
-  })),
 
   withMethods((store) => {
     const http = inject(HttpClientService);
@@ -86,21 +79,6 @@ export const movieStore = signalStore(
 
       fetchTvShowDetails(id: number) {
         return http.tvShowsDetails(id);
-      },
-
-      toggleWishlist(movie: Movie) {
-        const current = store.wishlist;
-        const exists = current().some(m => m.id === movie.id);
-        const updated = exists
-          ? current().filter(m => m.id !== movie.id)
-          : [...current(), movie];
-
-        patchState(store, { wishlist: updated });
-      },
-
-      removeFromWishlist(id: number) {
-        const updated = store.wishlist().filter(m => m.id !== id);
-        patchState(store, { wishlist: updated });
       }
     };
   })
