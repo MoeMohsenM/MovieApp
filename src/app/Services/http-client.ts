@@ -1,6 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+
+interface Movie {
+  id: number;
+  title: string;
+  overview: string;
+  poster_path: string;
+  release_date: string;
+  vote_average: number;
+}
+
 const environment = {
   myURL: 'https://api.themoviedb.org/3',
   myAPI: 'fd5056d12ef02fe62294f9e16155aa63'
@@ -13,14 +23,14 @@ export class HttpClientService {
   private readonly url = environment.myURL;
   private readonly apiKey = environment.myAPI;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   fetchMovies() {
     return this.http.get(`${this.url}/movie/now_playing?api_key=${this.apiKey}`);
   }
 
-  fetchMoviesById(id: number) {
-    return this.http.get(`${this.url}/movie/${id}?api_key=${this.apiKey}`);
+  fetchMoviesById(id: number){
+    return this.http.get<Movie>(`${this.url}/movie/${id}?api_key=${this.apiKey}`);
   }
 
   fetchRecommendMovies(id: number) {

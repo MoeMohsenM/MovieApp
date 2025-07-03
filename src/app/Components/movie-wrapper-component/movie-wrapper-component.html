@@ -1,0 +1,18 @@
+<div class="movie-list">
+  @for (movie of movieStore.myMovies(); track movie.id) {
+    <div class="movie-list__item">
+      <app-movie-card-component [movie]="movie"></app-movie-card-component>
+    </div>
+  }
+</div>
+
+
+<p>{{movieStore.myMovies().length}}</p>
+
+<app-pagination-component
+  [rows]="rows"
+  [totalRecords]="totalRecords"
+  [first]="first"
+  (pageChange)="onPaginationChange($event)">
+</app-pagination-component>
+

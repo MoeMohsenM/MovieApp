@@ -13,9 +13,14 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideAnimationsAsync(),
-    providePrimeNG({theme:{
-      preset: aura
-    }}),
+    providePrimeNG({
+      theme: {
+        preset: aura,
+        options: {
+          darkModeSelector: false || 'none'
+        }
+      },
+    }),
     provideHttpClient(),
   ]
 };

@@ -2,7 +2,7 @@ import {
   signalStore,
   withState,
   withMethods,
-  patchState
+  patchState,
 } from '@ngrx/signals';
 import { inject } from '@angular/core';
 import { HttpClientService } from '../Services/http-client';
@@ -24,7 +24,8 @@ export const movieStore = signalStore(
 
   withState({
     myMovies: initialMovies,
-    myTvShows: initialTvShows
+    myTvShows: initialTvShows,
+    currentMovie: null as Movie | null
   }),
 
   withMethods((store) => {
@@ -42,7 +43,9 @@ export const movieStore = signalStore(
       },
 
       fetchMovieById(id: number) {
-        return http.fetchMoviesById(id);
+        return http.fetchMoviesById(id).subscribe((m: Movie) => {
+          patchState(store, { currentMovie: m });
+        });
       },
 
       fetchRecommendations(id: number) {
