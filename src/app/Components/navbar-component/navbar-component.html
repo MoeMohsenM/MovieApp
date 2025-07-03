@@ -5,9 +5,13 @@
     </div>
 
     <div class="navbar__right">
-      <p-dropdown class="navbar__dropdown" [options]="languages" [(ngModel)]="selectedLanguage" optionLabel="name"
-        (onChange)="onLanguageChange()">
-      </p-dropdown>
+<p-dropdown
+  class="navbar__dropdown"
+  [options]="languages"
+  [(ngModel)]="selectedLanguage"
+  optionLabel="name"
+  (onChange)="onLanguageChange()">
+</p-dropdown>
       <a routerLink="/watchlist" class="navbar__icon-btn" aria-label="Watchlist">
         <i [ngClass]="hasWatchlist() ? 'pi pi-heart-fill' : 'pi pi-heart'" class="navbar__icon"></i>
       </a>

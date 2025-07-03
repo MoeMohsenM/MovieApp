@@ -29,7 +29,7 @@ export class HttpClientService {
     return this.http.get(`${this.url}/movie/now_playing?api_key=${this.apiKey}`);
   }
 
-  fetchMoviesById(id: number){
+  fetchMoviesById(id: number) {
     return this.http.get<Movie>(`${this.url}/movie/${id}?api_key=${this.apiKey}`);
   }
 

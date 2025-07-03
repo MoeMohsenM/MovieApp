@@ -30,7 +30,9 @@ export class SearchViewComponent implements OnInit {
       }
     });
   }
-   navigateToMovie(id: number) {
+  navigateToMovie(id: number) {
     this.router.navigate(['/movie', id]);
   }
 }
+
+

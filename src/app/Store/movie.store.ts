@@ -6,6 +6,7 @@ import {
 } from '@ngrx/signals';
 import { inject } from '@angular/core';
 import { HttpClientService } from '../Services/http-client';
+import { Observable } from 'rxjs';
 
 interface Movie {
   id: number;
@@ -25,7 +26,8 @@ export const movieStore = signalStore(
   withState({
     myMovies: initialMovies,
     myTvShows: initialTvShows,
-    currentMovie: null as Movie | null
+    currentMovie: null as Movie | null,
+
   }),
 
   withMethods((store) => {
@@ -66,7 +68,7 @@ export const movieStore = signalStore(
           patchState(store, { myMovies: res.results });
         });
       },
-
+      
       changeLanguage(lang: string) {
         http.changeLanguage(lang).subscribe((res: any) => {
           patchState(store, { myMovies: res.results });
