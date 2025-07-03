@@ -1,9 +1,10 @@
 
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, computed, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { movieStore } from '../../Store/movie.store';
 import { CommonModule } from '@angular/common';
 import { RecommendationsComponent } from '../recommendations-component/recommendations-component';
+import { wishlistStore } from '../../Store/wishlist.store';
 
 @Component({
   selector: 'app-movie-details-component',
@@ -15,6 +16,8 @@ import { RecommendationsComponent } from '../recommendations-component/recommend
 export class MovieDetailsComponent implements OnInit {
   private route = inject(ActivatedRoute);
   movieStore = inject(movieStore);
+  wishlistStore = inject(wishlistStore);
+
 
   movie: any = null;
   recommendations: any[] = [];
@@ -30,4 +33,18 @@ export class MovieDetailsComponent implements OnInit {
 
     this.movie = this.movieStore.currentMovie;
   }
+  isInWishlist = computed(() =>
+    !!this.movie() && this.wishlistStore.wishlist().some(m => m.id === this.movie().id)
+  );
+  toggleWishlist(event: MouseEvent) {
+    event.stopPropagation();
+    if (this.movie()) {
+      this.wishlistStore.toggleWishlist(this.movie());
+    }
+  }
 }
+
+
+
+
+

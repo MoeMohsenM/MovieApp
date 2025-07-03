@@ -5,5 +5,12 @@
   <p><strong>Rating:</strong> {{ movie().vote_average }}</p>
   <p>{{ movie().overview }}</p>
 
+  <div class="movie-actions">
+    <button class="heart-btn" [ngClass]="{ 'active': isInWishlist() }" (click)="toggleWishlist($event)"
+      aria-label="Toggle Watchlist">
+      <i class="pi" [ngClass]="isInWishlist() ? 'pi pi-heart-fill' : 'pi pi-heart'"></i>
+    </button>
+  </div>
+
   <app-recommendations-component [movies]="recommendations"></app-recommendations-component>
 </div>
