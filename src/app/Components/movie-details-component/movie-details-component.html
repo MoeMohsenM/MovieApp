@@ -1,1 +1,13 @@
-<p>movie-details-component works!</p>
+<div *ngIf="movie; else loading">
+  <h2>{{ movie.title }}</h2>
+  <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="{{ movie.title }}" />
+  <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
+  <p><strong>Rating:</strong> {{ movie.vote_average }}</p>
+  <p>{{ movie.overview }}</p>
+</div>
+
+<ng-template #loading>
+  <p>Loading movie details...</p>
+</ng-template>
+
+<app-recommendations-component></app-recommendations-component>

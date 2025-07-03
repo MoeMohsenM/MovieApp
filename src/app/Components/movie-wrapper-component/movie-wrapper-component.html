@@ -1,7 +1,8 @@
 <div class="movie-list">
   @for (movie of movieStore.myMovies(); track movie.id) {
-    <div class="movie-list__item">
-      <app-movie-card-component [movie]="movie"></app-movie-card-component>
+    <div class="movie-list__item" (click)="navigateToMovie(movie.id)"
+      style="cursor: pointer">
+      <app-movie-card-component  [movie]="movie"></app-movie-card-component>
     </div>
   }
 </div>

@@ -1,23 +1,26 @@
-import { Component } from '@angular/core';
-import { movieStore } from '../../Store/movie.store';
-import { inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { movieStore } from '../../Store/movie.store';
+import { CommonModule } from '@angular/common';
+import { RecommendationsComponent } from "../recommendations-component/recommendations-component";
 
 @Component({
   selector: 'app-movie-details-component',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule, RecommendationsComponent],
   templateUrl: './movie-details-component.html',
   styleUrl: './movie-details-component.scss'
 })
-export class MovieDetailsComponent {
+export class MovieDetailsComponent implements OnInit {
+  private route = inject(ActivatedRoute);
   movieStore = inject(movieStore);
-  route = inject(ActivatedRoute); // this allows me to access the URL so extract the id
 
-  constructor() {
-    const id = this.route.snapshot.paramMap.get('id')
+  ngOnInit() {
+    const id = +this.route.snapshot.paramMap.get('id')!;
+    this.movieStore.fetchMovieById(id);
+  }
 
-    if (id) {
-      this.movieStore.fetchMovieById(+id)
-    }
+  get movie() {
+    return this.movieStore.currentMovie();
   }
 }

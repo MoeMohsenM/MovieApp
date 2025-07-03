@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MovieCardComponent } from '../movie-card-component/movie-card-component';
 import { PaginationComponent } from "../pagination-component/pagination-component";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-wrapper-component',
@@ -13,6 +14,7 @@ import { PaginationComponent } from "../pagination-component/pagination-componen
 })
 export class MovieWrapperComponent {
   movieStore = inject(movieStore)
+  router= inject (Router)
 
   rows = 20;
   totalRecords = 1000;
@@ -20,6 +22,10 @@ export class MovieWrapperComponent {
 
   ngOnInit() {
     this.movieStore.loadMovies();
+  }
+
+  navigateToMovie(id: number) {
+    this.router.navigate(['/movie', id]);
   }
 
   onPaginationChange(page: number) {
