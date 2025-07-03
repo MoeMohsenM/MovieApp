@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-recommendations-component',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './recommendations-component.html',
   styleUrl: './recommendations-component.scss'
 })
 export class RecommendationsComponent {
-
+  @Input() movies: any[] = [];
 }

@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Button } from "./button/button";
 import { movieStore } from './Store/movie.store';
 import { OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -9,7 +8,7 @@ import { NavbarComponent } from "./Components/navbar-component/navbar-component"
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Button, CommonModule, ButtonModule, NavbarComponent],
+  imports: [RouterOutlet, CommonModule, ButtonModule, NavbarComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

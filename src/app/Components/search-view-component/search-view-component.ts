@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { movieStore } from '../../Store/movie.store';
 import { SearchComponent } from '../search-component/search-component';
 import { MovieCardComponent } from '../movie-card-component/movie-card-component';
@@ -16,6 +16,7 @@ import { MovieWrapperComponent } from "../movie-wrapper-component/movie-wrapper-
 export class SearchViewComponent implements OnInit {
   movieStore = inject(movieStore);
   route = inject(ActivatedRoute);
+  router = inject(Router);
   query = ''
 
   ngOnInit() {
@@ -28,5 +29,8 @@ export class SearchViewComponent implements OnInit {
         this.movieStore.loadMovies();
       }
     });
+  }
+   navigateToMovie(id: number) {
+    this.router.navigate(['/movie', id]);
   }
 }
