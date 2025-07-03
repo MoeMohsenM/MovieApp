@@ -2,6 +2,8 @@
   [rows]="rows"
   [totalRecords]="totalRecords"
   [first]="first"
-  (onPageChange)="onPageChange($event)"
-  class="custom-paginator">
+  [showFirstLastIcon]="false"
+  [pageLinkSize]="5"
+  [showPageLinks]="true"
+  (onPageChange)="onPageChange($event)">
 </p-paginator>

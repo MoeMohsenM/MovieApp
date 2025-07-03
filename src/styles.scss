@@ -9,51 +9,43 @@ html, body {
   box-sizing: border-box;
 }
 
-
-.custom-paginator {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  padding: 0;
-  margin: 24px 0 0 0;
-  justify-content: center;
-  display: flex; // <- needed if you want justify-content to work
-}
-
-.custom-paginator .p-paginator-page {
-  background: #fff;
+.p-select-label {
+  font-size: 1rem;
   color: #222;
-  border: none;
-  border-radius: 6px;
-  margin: 0 2px;
   font-weight: bold;
-  min-width: 36px;
-  min-height: 36px;
-  transition: background 0.2s, color 0.2s;
+margin-right: -1.2rem;}
+
+
+
+.p-component {
+  --p-paginator-nav-button-selected-background: #ffe156;
+  --p-paginator-nav-button-selected-color: #111;
+  --p-paginator-button-border-radius: 6px;
+  --p-button-padding: 0.5rem 0.75rem;
+  --p-button-text-color: #222;
+  --p-button-bg: #fff;
+  --p-button-hover-bg: #ffe15644;
 }
 
-.custom-paginator .p-paginator-page.p-highlight {
-  background: #ffe156;
-  color: #111;
-  border: none;
+.p-paginator-page {
+  border-radius: 0 !important;
+  width: 36px;
+  height: 36px;
 }
 
-.custom-paginator .p-paginator-element:focus {
-  box-shadow: 0 0 0 2px #ffe156;
+.p-paginator-page.p-highlight {
+  border-radius: 0 !important;
 }
 
-.custom-paginator .p-paginator-icon {
-  color: #222;
-  font-size: 1.1rem;
+.p-paginator-pages > button {
+  margin: 0 4px !important; /* space left and right */
 }
 
-.custom-paginator .p-paginator-pages {
-  display: flex;
-  align-items: center;
-}
+
 
 .container{
   width:92rem;
   margin: 0 auto;
 }
+
 

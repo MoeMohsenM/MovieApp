@@ -20,28 +20,5 @@ export class PaginationComponent {
     this.pageChange.emit(page);
   }
 }
-// import { PaginatorModule } from 'primeng/paginator';
-// import { Component, EventEmitter, Input, Output } from '@angular/core';
-// import { PaginatorState } from 'primeng/paginator';
-
-// @Component({
-//   selector: 'app-pagination-component',
-//   standalone: true,
-//   templateUrl: './pagination-component.html',
-//   styleUrls: ['./pagination-component.scss'],
-//   imports: [PaginatorModule]
-// })
-// export class PaginationComponent {
-//   @Input() rows: number = 20;
-//   @Input() totalRecords: number = 0;
-//   @Input() first: number = 0;
-
-//   @Output() pageChange = new EventEmitter<number>();
-
-//   onPageChange(event: PaginatorState) {
-//     const first = event.first ?? 0;
-//     this.pageChange.emit(first);
-//   }
-// }
 
 
