@@ -16,10 +16,12 @@ import { MovieWrapperComponent } from "../movie-wrapper-component/movie-wrapper-
 export class SearchViewComponent implements OnInit {
   movieStore = inject(movieStore);
   route = inject(ActivatedRoute);
+  query=''
 
   ngOnInit() {
     this.route.queryParamMap.subscribe(params => {
       const query = params.get('query')?.trim() || '';
+      this.query=query
       if (query) {
         this.movieStore.searchMovies(query);
       } else {
