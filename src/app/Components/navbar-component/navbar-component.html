@@ -1,19 +1,33 @@
-<nav class="navbar">
+<!-- <nav class="navbar">
   <div class="navbar__container">
     <div class="navbar__left">
-      <span class="navbar__brand">Movie App</span>
+      <a routerLink="/" class="navbar__brand">Movie App</a>
     </div>
+
     <div class="navbar__right">
-      <p-dropdown
-        class="navbar__dropdown"
-        [options]="languages"
-        [(ngModel)]="selectedLanguage"
-        optionLabel="name"
+      <p-dropdown class="navbar__dropdown" [options]="languages" [(ngModel)]="selectedLanguage" optionLabel="name"
         (onChange)="onLanguageChange()">
       </p-dropdown>
       <button class="navbar__icon-btn" (click)="onHeartClick()" aria-label="Toggle Watchlist">
-        <i class="pi pi-heart-fill navbar__icon"></i>
+        <a routerLink="/watchlist"><i class="pi pi-heart-fill navbar__icon"></i></a>
       </button>
+      <span class="navbar__watchlist">watchlist</span>
+    </div>
+  </div>
+</nav> -->
+<nav class="navbar">
+  <div class="navbar__container">
+    <div class="navbar__left">
+      <a routerLink="/" class="navbar__brand">Movie App</a>
+    </div>
+
+    <div class="navbar__right">
+      <p-dropdown class="navbar__dropdown" [options]="languages" [(ngModel)]="selectedLanguage" optionLabel="name"
+        (onChange)="onLanguageChange()">
+      </p-dropdown>
+      <a routerLink="/watchlist" class="navbar__icon-btn" aria-label="Watchlist">
+        <i [ngClass]="hasWatchlist() ? 'pi pi-heart-fill' : 'pi pi-heart'" class="navbar__icon"></i>
+      </a>
       <span class="navbar__watchlist">watchlist</span>
     </div>
   </div>

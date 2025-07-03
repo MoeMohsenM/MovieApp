@@ -1,0 +1,17 @@
+<h2> Watchlist</h2>
+
+<div *ngIf="wishlist().length > 0; else empty">
+  <div class="movie-list">
+    <div class="movie-list__item" *ngFor="let movie of wishlist()" (click)="navigateToMovie(movie.id)"
+      style="cursor: pointer;">
+      <app-movie-card-component [movie]="movie" />
+    </div>
+  </div>
+</div>
+
+<ng-template #empty>
+  <div class="empty-watchlist">
+    <p>no movies in watch list</p>
+    <button (click)="goHome()" class="back-btn">Back to home</button>
+  </div>
+</ng-template>

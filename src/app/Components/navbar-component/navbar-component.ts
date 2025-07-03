@@ -1,12 +1,15 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { DropdownModule } from 'primeng/dropdown';
 import { movieStore } from '../../Store/movie.store';
 import { FormsModule } from '@angular/forms';
 import { IconField } from 'primeng/iconfield';
+import { RouterModule } from '@angular/router';
+import { wishlistStore } from '../../Store/wishlist.store';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-navbar-component',
-  imports: [DropdownModule, FormsModule,],
+  imports: [DropdownModule, FormsModule, RouterModule,CommonModule],
   templateUrl: './navbar-component.html',
   styleUrl: './navbar-component.scss'
 })
@@ -25,7 +28,8 @@ export class NavbarComponent {
   onLanguageChange() {
     this.store.changeLanguage(this.selectedLanguage.code);
   }
-  onHeartClick() {
-    console.log('Heart icon clicked!');
-  }
+
+  wishlistStore = inject(wishlistStore);
+
+  hasWatchlist = computed(() => this.wishlistStore.wishlist().length > 0);
 }

@@ -112,3 +112,13 @@
   color: #1976d2;
   transition: color 0.2s;
 }
+
+.navbar__icon-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}

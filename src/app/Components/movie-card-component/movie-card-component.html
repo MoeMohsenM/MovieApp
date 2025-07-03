@@ -10,9 +10,10 @@
     <div class="movie-title">{{ movie.title }}</div>
     <div class="movie-date">{{ movie.release_date | date:'MMM dd, yyyy' }}</div>
     <div class="movie-actions">
-      <button class="heart-btn" [ngClass]="{'active': movie.inWatchlist}" >
-        <i class="pi" [ngClass]="movie.inWatchlist ? 'pi-heart-fill' : 'pi-heart'"></i>
+      <button class="heart-btn" [ngClass]="{ 'active': isInWishlist() }" (click)="toggleWishlist($event)">
+        <i class="pi" [ngClass]="isInWishlist() ? 'pi-heart-fill' : 'pi-heart'"></i>
       </button>
     </div>
+
   </div>
 </div>
