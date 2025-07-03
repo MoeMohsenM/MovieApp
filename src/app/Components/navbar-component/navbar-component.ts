@@ -1,14 +1,16 @@
 
-import { wishlistStore } from '../../Store/wishlist.store';
-import { CommonModule } from '@angular/common';
 import { Component, computed, inject } from '@angular/core';
 import { DropdownModule } from 'primeng/dropdown';
 import { movieStore } from '../../Store/movie.store';
 import { FormsModule } from '@angular/forms';
+import { IconField } from 'primeng/iconfield';
+import { RouterModule } from '@angular/router';
+import { wishlistStore } from '../../Store/wishlist.store';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-navbar-component',
-  imports: [DropdownModule, FormsModule,CommonModule],
+  imports: [DropdownModule, FormsModule, RouterModule,CommonModule],
   templateUrl: './navbar-component.html',
   styleUrl: './navbar-component.scss'
 })
