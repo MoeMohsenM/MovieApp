@@ -1,0 +1,49 @@
+.xdcontainer {
+  padding-top: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.empty-watchlist {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  svg {
+    max-width: 212px;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: #000000;
+    margin-bottom: 2rem;
+  }
+
+  .back-btn {
+    padding: 10px 20px;
+    background-color: rgba(255, 227, 83, 1);
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    width: 15 0%;
+  }
+}
+
+.movie-list__item{
+  width: 49%;
+  border: 1px solid red;
+  margin-bottom: 1rem;
+}
+
+
+.movie-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+

@@ -3,8 +3,6 @@ import { movieStore } from '../../Store/movie.store';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { wishlistStore } from '../../Store/wishlist.store';
-
-
 @Component({
   selector: 'app-movie-card-component',
   imports: [FormsModule, CommonModule],
@@ -12,7 +10,7 @@ import { wishlistStore } from '../../Store/wishlist.store';
   styleUrl: './movie-card-component.scss'
 })
 export class MovieCardComponent {
-  movieService = inject(movieStore)
+  movieStore = inject(movieStore)
   @Input() movie: any;
 
   wishlistStore = inject(wishlistStore);
@@ -25,5 +23,4 @@ export class MovieCardComponent {
     event.stopPropagation();
     this.wishlistStore.toggleWishlist(this.movie);
   }
-
 }

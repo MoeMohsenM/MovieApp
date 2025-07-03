@@ -1,0 +1,17 @@
+.search__container{
+  margin-top: 3rem;
+}
+
+.movie-list__item{
+  width: 18.5%;
+  border: 1px solid red;
+  margin-bottom: 1rem;
+}
+
+
+.movie-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+

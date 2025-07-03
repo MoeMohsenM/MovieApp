@@ -1,29 +1,9 @@
-<!-- <div class="search-container">
-  <h2>Welcome to our movie app</h2>
-  <p>Millions of movies, TV shows and people to discover. Explore now.</p>
-  <div class="search-bar-row">
-    <input
-      type="text"
-      class="search-input"
-      placeholder="Search and explore...."
-      [(ngModel)]="searchQuery"
-      (keyup.enter)="onSearch()"
-    />
-    <button
-      pButton
-      type="button"
-      class="search-btn"
-      (click)="onSearch()"
-    >
-      Search
-    </button>
-  </div>
-</div> -->
-
-<div class="search-container">
-  <h2>Welcome to our movie app</h2>
-  <p>Millions of movies, TV shows and people to discover. Explore now.</p>
-  <div class="search-bar-row">
-   <app-search-bar-component></app-search-bar-component>
+<div class="search__container">
+  <div class="container">
+    <h2>Welcome to our movie app</h2>
+    <p>Millions of movies, TV shows and people to discover. Explore now.</p>
+    <div class="search-bar-row">
+      <app-search-bar-component></app-search-bar-component>
+    </div>
   </div>
 </div>

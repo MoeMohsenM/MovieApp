@@ -1,20 +1,15 @@
-<div class="movie-list">
-  @for (movie of movieStore.myMovies(); track movie.id) {
-    <div class="movie-list__item" (click)="navigateToMovie(movie.id)"
-      style="cursor: pointer">
-      <app-movie-card-component  [movie]="movie"></app-movie-card-component>
+<div class="movie__wrapper">
+  <div class="container">
+    <div class="movie-list">
+      @for (movie of movieStore.myMovies(); track movie.id) {
+      <div class="movie-list__item" (click)="navigateToMovie(movie.id)" style="cursor: pointer">
+        <app-movie-card-component [movie]="movie"></app-movie-card-component>
+      </div>
+      }
     </div>
-  }
+  </div>
 </div>
 
-
-<p>{{movieStore.myMovies().length}}</p>
-
-<app-pagination-component
-  [rows]="rows"
-  [totalRecords]="totalRecords"
-  [first]="first"
+<app-pagination-component [rows]="rows" [totalRecords]="totalRecords" [first]="first"
   (pageChange)="onPaginationChange($event)">
 </app-pagination-component>
-
-

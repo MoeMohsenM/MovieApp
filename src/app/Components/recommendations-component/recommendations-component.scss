@@ -1,0 +1,12 @@
+.recommendation-card{
+  width: 15%;
+  border: 1px solid red;
+  margin-bottom: 1rem;
+}
+
+
+.recommendations__wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

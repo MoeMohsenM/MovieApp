@@ -1,16 +1,18 @@
-<app-search-bar-component></app-search-bar-component>
+<div class="container search__container">
+  <app-search-bar-component></app-search-bar-component>
 
-<h2>Search results for: {{ query }}</h2>
 
-<div class="movie-list">
-  @for (movie of movieStore.myMovies(); track movie.id) {
-    <div
-      class="movie-list__item"
-      (click)="navigateToMovie(movie.id)"
-      style="cursor: pointer"
-    >
-      <app-movie-card-component [movie]="movie" />
+  <h4>Search results for: <span style="font-weight: lighter;">{{ query }}</span></h4>
+  <div class="movie__wrapper">
+    <div class="container">
+      <div class="movie-list">
+        @for (movie of movieStore.myMovies(); track movie.id) {
+        <div class="movie-list__item" (click)="navigateToMovie(movie.id)" style="cursor: pointer">
+          <app-movie-card-component [movie]="movie" />
+        </div>
+        }
+      </div>
     </div>
-  }
-</div>
+  </div>
 
+</div>

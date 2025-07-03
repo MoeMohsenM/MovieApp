@@ -1,6 +1,6 @@
 
 import { Component, OnInit, computed, inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { movieStore } from '../../Store/movie.store';
 import { CommonModule } from '@angular/common';
 import { RecommendationsComponent } from '../recommendations-component/recommendations-component';
@@ -17,6 +17,7 @@ export class MovieDetailsComponent implements OnInit {
   private route = inject(ActivatedRoute);
   movieStore = inject(movieStore);
   wishlistStore = inject(wishlistStore);
+  router=inject(Router)
 
 
   movie: any = null;
@@ -42,6 +43,10 @@ export class MovieDetailsComponent implements OnInit {
       this.wishlistStore.toggleWishlist(this.movie());
     }
   }
+  goToMovie(movieId: number) {
+    this.router.navigate(['/movie', movieId]); // Or whatever your route pattern is
+  }
+
 }
 
 
