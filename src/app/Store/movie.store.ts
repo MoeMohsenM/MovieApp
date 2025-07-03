@@ -37,7 +37,6 @@ export const movieStore = signalStore(
           patchState(store, { myMovies: res.results });
         });
       },
-
       setMovies(movies: Movie[]) {
         patchState(store, { myMovies: movies });
       },
@@ -83,6 +82,7 @@ export const movieStore = signalStore(
       fetchTvShowDetails(id: number) {
         return http.tvShowsDetails(id);
       }
+
     };
   })
 );

@@ -1,22 +1,25 @@
 import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { movieStore } from '../../Store/movie.store';
+import { SearchBarComponent } from "../search-bar-component/search-bar-component";
 
 @Component({
   selector: 'app-search-component',
-  imports: [FormsModule],
+  standalone: true,
+  imports: [FormsModule, SearchBarComponent],
   templateUrl: './search-component.html',
   styleUrl: './search-component.scss'
 })
 export class SearchComponent {
   searchQuery = '';
-  movieStore = inject(movieStore);
+  router = inject(Router);
 
   onSearch() {
-    if (!this.searchQuery.trim()) {
-      this.movieStore.loadMovies();
-    } else {
-      this.movieStore.searchMovies(this.searchQuery);
+    const query = this.searchQuery.trim();
+    if (query) {
+      this.router.navigate(['/search'], { queryParams: { query } });
     }
   }
 }
+
+

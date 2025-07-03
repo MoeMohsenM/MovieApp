@@ -1,0 +1,15 @@
+ <input
+      type="text"
+      class="search-input"
+      placeholder="Search and explore...."
+      [(ngModel)]="searchQuery"
+      (keyup.enter)="onSearch()"
+    />
+    <button
+      pButton
+      type="button"
+      class="search-btn"
+      (click)="onSearch()"
+    >
+      Search
+    </button>

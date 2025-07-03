@@ -27,3 +27,4 @@ export class MovieWrapperComponent {
     this.movieStore.paginateMovies(page);
   }
 }
+
