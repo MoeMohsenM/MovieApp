@@ -1,15 +1,12 @@
-<h3>Recommended Movies</h3>
+<div class="container">
+  <h2>Recommendations</h2>
 
-
-<div class="recommendations">
-  <div class="container">
-    <div class="recommendations__wrapper">
-      <div *ngFor="let movie of movies" class="recommendation-card">
-        <img [src]="'https://image.tmdb.org/t/p/w200' + movie.poster_path" alt="{{ movie.title }}" />
-        <p>{{ movie.title }}</p>
-      </div>
+  <div class="recommendations">
+    <div class="recommendations-list">
+      <app-movie-card-component class="recommendation-card" *ngFor="let movie of movies" [movie]="movie"
+        (click)="onMovieClick(movie)">
+      </app-movie-card-component>
     </div>
-
     <p *ngIf="movies.length === 0">No recommendations found.</p>
   </div>
 </div>

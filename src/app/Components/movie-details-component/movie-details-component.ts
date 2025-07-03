@@ -24,16 +24,16 @@ export class MovieDetailsComponent implements OnInit {
   recommendations: any[] = [];
 
   ngOnInit() {
-    const id = +this.route.snapshot.paramMap.get('id')!;
-
+  this.route.paramMap.subscribe(params => {
+    const id = +params.get('id')!;
     this.movieStore.fetchMovieById(id);
-
     this.movieStore.fetchRecommendations(id).subscribe((res: any) => {
       this.recommendations = res.results;
     });
-
     this.movie = this.movieStore.currentMovie;
-  }
+  });
+}
+
   isInWishlist = computed(() =>
     !!this.movie() && this.wishlistStore.wishlist().some(m => m.id === this.movie().id)
   );
@@ -44,8 +44,12 @@ export class MovieDetailsComponent implements OnInit {
     }
   }
   goToMovie(movieId: number) {
-    this.router.navigate(['/movie', movieId]); // Or whatever your route pattern is
+    this.router.navigate(['/movie', movieId]);
   }
+
+  handleRecommendedMovieClick(movie: any) {
+  this.router.navigate(['/movie', movie.id]);
+}
 
 }
 

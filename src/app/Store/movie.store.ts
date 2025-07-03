@@ -68,7 +68,7 @@ export const movieStore = signalStore(
           patchState(store, { myMovies: res.results });
         });
       },
-      
+
       changeLanguage(lang: string) {
         http.changeLanguage(lang).subscribe((res: any) => {
           patchState(store, { myMovies: res.results });

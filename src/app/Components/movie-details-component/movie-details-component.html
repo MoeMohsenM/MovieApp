@@ -1,3 +1,4 @@
+<div class="container">
 <div *ngIf="movie(); ">
   <h2>{{ movie().title }}</h2>
   <img [src]="'https://image.tmdb.org/t/p/w500' + movie().poster_path" alt="{{ movie().title }}" />
@@ -12,5 +13,9 @@
     </button>
   </div>
 
-   <app-recommendations-component [movies]="recommendations"></app-recommendations-component>
+<app-recommendations-component
+  [movies]="recommendations"
+  (movieSelected)="handleRecommendedMovieClick($event)">
+</app-recommendations-component>
+</div>
 </div>

@@ -3,6 +3,8 @@ import { movieStore } from '../../Store/movie.store';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { wishlistStore } from '../../Store/wishlist.store';
+import { Output, EventEmitter } from '@angular/core';//here
+
 @Component({
   selector: 'app-movie-card-component',
   imports: [FormsModule, CommonModule],
@@ -12,6 +14,8 @@ import { wishlistStore } from '../../Store/wishlist.store';
 export class MovieCardComponent {
   movieStore = inject(movieStore)
   @Input() movie: any;
+  @Output() movieClicked = new EventEmitter<number>();//here
+
 
   wishlistStore = inject(wishlistStore);
 
@@ -23,4 +27,12 @@ export class MovieCardComponent {
     event.stopPropagation();
     this.wishlistStore.toggleWishlist(this.movie);
   }
+    handleClick() {
+    this.movieClicked.emit(this.movie.id);
+  }//here
 }
+
+
+
+
+

@@ -10,13 +10,14 @@ html, body {
 }
 
 
-.custom-paginator .p-paginator {
+.custom-paginator {
   background: transparent;
   border: none;
   box-shadow: none;
   padding: 0;
   margin: 24px 0 0 0;
   justify-content: center;
+  display: flex; // <- needed if you want justify-content to work
 }
 
 .custom-paginator .p-paginator-page {
@@ -51,8 +52,8 @@ html, body {
   align-items: center;
 }
 
-
 .container{
   width:92rem;
   margin: 0 auto;
 }
+

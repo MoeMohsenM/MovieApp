@@ -1,4 +1,4 @@
-<div class="movie-card">
+<div class="movie-card" (click)="handleClick()" style="cursor: pointer;">
   <div class="poster-container">
     <img [src]="movie.poster_path" [alt]="movie.title" class="movie-poster" />
     <span class="rating-badge">{{ movie.vote_average }}</span>
