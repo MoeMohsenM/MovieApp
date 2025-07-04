@@ -31,7 +31,7 @@ export class MovieCardComponent {
     this.movieClicked.emit(this.movie.id);
   }
 
-  fallbackImage = 'https://placehold.co/350x400';
+  fallbackImage = 'https://placehold.co/270x400';
 
   getImageUrl(media: any): string {
     return media.poster_path || media.profile_path

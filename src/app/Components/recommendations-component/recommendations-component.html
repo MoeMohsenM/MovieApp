@@ -1,12 +1,11 @@
-<div class="container">
-  <h2>Recommendations</h2>
+<p-carousel [value]="movies" [numVisible]="4" [numScroll]="1" [responsiveOptions]="responsiveOptions">
+  <ng-template let-movie pTemplate="item">
+    <app-movie-card-component
+      class="recommendation-card"
+      [movie]="movie"
+      (click)="onMovieClick(movie)">
+    </app-movie-card-component>
+  </ng-template>
+</p-carousel>
 
-  <div class="recommendations">
-    <div class="recommendations-list">
-      <app-movie-card-component class="recommendation-card" *ngFor="let movie of movies" [movie]="movie"
-        (click)="onMovieClick(movie)">
-      </app-movie-card-component>
-    </div>
-    <p *ngIf="movies.length === 0">No recommendations found.</p>
-  </div>
-</div>
+<p *ngIf="movies.length === 0" class="no-recommendations">No recommendations found.</p>

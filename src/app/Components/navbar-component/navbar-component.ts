@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-navbar-component',
-  imports: [DropdownModule, FormsModule, RouterModule,CommonModule],
+  imports: [DropdownModule, FormsModule, RouterModule, CommonModule],
   templateUrl: './navbar-component.html',
   styleUrl: './navbar-component.scss'
 })
