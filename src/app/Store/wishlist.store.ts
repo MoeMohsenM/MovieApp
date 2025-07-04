@@ -58,6 +58,11 @@ export const wishlistStore = signalStore(
 
     setWishlist(movies: Movie[]) {
       patchState(store, { wishlist: movies });
-    }
+    },
+
+
+      isInWatchList: (productId: string | number): boolean => {
+      return store.wishlist().some((p: { id: string | number }) => p.id === productId);
+},
   }))
 );

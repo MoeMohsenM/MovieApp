@@ -83,7 +83,8 @@ export const movieStore = signalStore(
 
       fetchTvShowDetails(id: number) {
         return http.tvShowsDetails(id);
-      }
+      },
+
 
     };
   })
