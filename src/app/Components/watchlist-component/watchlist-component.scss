@@ -34,16 +34,48 @@
   }
 }
 
-.movie-list__item{
-  width: 49%;
-  border: 1px solid red;
-  margin-bottom: 1rem;
+.container {
+  background-color: #fff;
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  font-family: 'Inter', sans-serif;
+  color: #111;
+
+  h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    color: #1f2937;
+  }
 }
 
-
-.movie-list{
+.movie-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  gap: 1rem 0; // vertical spacing
 }
 
+.movie-list__item {
+  width: 49%;
+  margin-bottom: 1rem;
+  background-color: #f9fafb;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 0.5rem;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  app-movie-card-component {
+    display: block;
+    height: 100%;
+  }
+}

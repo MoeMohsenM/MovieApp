@@ -1,18 +1,23 @@
 <div class="container">
-  <h2> Watchlist</h2>
+  <h2> Watchlist: {{wishlist().length}}</h2>
   <div *ngIf="wishlist().length > 0; else empty">
     <div class="movie-list">
       @for (movie of wishlist(); track movie.id) {
-      <div class="movie-list__item">
-        <app-movie-card-component [movie]="movie" (movieClicked)="navigateToMovie($event)">
-        </app-movie-card-component>
+      <div class="movie-list__item" (click)="navigateToMovie(movie.id)">
+        <app-movie-card-component [movie]="movie"></app-movie-card-component>
       </div>
+
       }
     </div>
 
-
   </div>
 </div>
+
+
+
+
+
+
 <ng-template #empty>
   <div class="xdcontainer">
 

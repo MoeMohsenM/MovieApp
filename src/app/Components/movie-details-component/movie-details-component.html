@@ -12,10 +12,12 @@
       <i class="pi" [ngClass]="isInWishlist() ? 'pi pi-heart-fill' : 'pi pi-heart'"></i>
     </button>
   </div>
+</div>
+</div>
 
+<div class="recommendations__container">
 <app-recommendations-component
   [movies]="recommendations"
   (movieSelected)="handleRecommendedMovieClick($event)">
 </app-recommendations-component>
-</div>
 </div>

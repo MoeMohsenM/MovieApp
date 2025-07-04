@@ -1,0 +1,83 @@
+.recommendation-card{
+  width: 20%;
+  margin-bottom: 1rem;
+}
+
+
+.recommendations-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+
+.container {
+  background-color: #fff;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 2rem auto;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  font-family: 'Inter', sans-serif;
+  color: #111;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
+
+img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+
+  strong {
+    color: #374151;
+  }
+}
+
+.movie-actions {
+  margin-top: 1.5rem;
+}
+
+.heart-btn {
+  background-color: #f3f4f6;
+  border: none;
+  border-radius: 50%;
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 1.2rem;
+
+  &:hover {
+    background-color: #e5e7eb;
+  }
+
+  &.active {
+    background-color: #fee2e2;
+    color: #dc2626;
+
+    i {
+      color: #dc2626;
+    }
+  }
+
+  i {
+    font-size: 1.2rem;
+    color: #6b7280;
+    transition: color 0.2s ease;
+  }
+}
+
+
